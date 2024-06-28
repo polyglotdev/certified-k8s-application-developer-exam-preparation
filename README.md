@@ -268,4 +268,3 @@ spec:
   - Schedule Pod to run on node
   - Creates a Pod object
   - Starts the container in the Pod
-
