@@ -77,3 +77,62 @@ Kubernetes is an open-source platform designed to automate deploying, scaling, a
 - Deploy Containers
 - Wire up networking
 - Scale and Expose Services
+
+## Kubernetes for Operations
+
+- Automatically recover from machine failure
+- Replace and reschedule containers
+- Built in support for maintenance
+- Join clusters with federation
+
+## Kubernetes Feature Highlights
+
+- Automated deployment rollout and rollback
+- Seamless horizontal scaling
+- Secret management
+- Service discovery and load balancing
+- Linux and Windows container support
+- Simple log collection
+- Stateful application support
+- Self-healing
+- Persistent Volume management
+- CPU and memory quotas
+- Batch job processing
+- Role-based access control
+
+## Container Orchestration Landscape
+
+- There has been a surge in tools to support enterprises adopting containers in production
+- We will compare Kubernetes with other tools to get a better understanding
+- Compare to: DCOS, Amazon ECS, and Docker swarm mode
+
+## DCOS
+
+- Distributed Cloud Operating System
+- Pools compute resources into a uniform task pool
+- Supports many different types of workloads
+- Attractive to organizations not only using containers
+- Includes package manager to easily deploy popular systems
+- Can even run Kubernetes on DC/OS
+- [DC/OS](https://dcos.io/)
+
+## Amazon ECS
+
+- Elastic Container Service
+- AWS first entry in container orchestration
+- Create pools of compute resources
+- API calls to orchestrate containers
+- EC2 compute instance managed by you or AWS Fargate
+- Only available on AWS
+- Useful if you are deep in the AWS ecosystem
+- [Amazon ECS](https://aws.amazon.com/ecs/)
+
+## Docker Swarm Mode
+
+- Docker's native clustering tool
+- Builds a cluster from multiple docker hosts
+- Works with Docker Compose command
+- Enterprise features available
+- Docker also provides full suport of K8's
+
+## Deploying Kubernetes
