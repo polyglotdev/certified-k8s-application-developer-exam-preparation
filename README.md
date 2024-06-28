@@ -136,3 +136,136 @@ Kubernetes is an open-source platform designed to automate deploying, scaling, a
 - Docker also provides full suport of K8's
 
 ## Deploying Kubernetes
+
+### Single Node Cluster
+
+- Docker
+- Minikube
+- MicroK8s
+- Orbstack
+- Kubeadm
+
+### Single Node K8s Clusters for CI
+
+- Create ephemeral clusters that start quickly and are in a pristine state for testing applications in Kubernetes
+- [Kubernetes-in-Docker](github.com/kubernetes-sigs/kind) (kind) is made specifically for this use case
+
+## Multi-Node Cluster
+
+- For your production workloads
+- Horizontal scaling
+- Tolerate node failures
+
+### Questions you need to ask for Multi-Node Clusters
+
+- How much control vs. effort in maintaining the cluster?
+- Fully-managed solutions free you from routine maintenance
+- Often lag the latest Kubernetes releases
+
+## Fully-managed Full Control
+
+| Fully Managed | Full Control |
+| ------------- | ------------ |
+| Google Cloud  | Kops         |
+| AWS EKS       | Kubeadm      |
+| Azure AKS     | Kubespray    |
+
+## K8s Architecture
+
+K8s introduces its own dialect to orechestration space
+
+- Cluster:
+  - Cluster refers to all of the machines collectively and can be thought of as the entire running system
+  - Nodes are the machines in the cluster
+  - Nodes are categorized as workers or masters Worker nodes include software to run containers managed by the
+  - Kubernetes control plane
+  - Master nodes run the control plane
+  - The control plane is a set of API's and software that Kubernetes users interact with
+  - The APIs and software are referred to as master components
+
+## Scheduling
+
+- Control plane schedules containers onto nodes
+- Scheduling decisions consider required CPU and other factors
+- Scheduling refers to the decision process of placing contianers onto node
+
+## K8's Pods
+
+- Groups of containers
+- Pods are the smallest building block in Kubernetes
+- More complex and useful abstractions built on top of Pods
+
+## K8's Services
+
+- Services define networking rules for exposing groups of Pods
+  - To other Pods
+  - To the public Internet
+
+## Kubernetes Deployments
+
+- Manage deploying configuration changes to running pods
+- Horizontal scaling
+
+## Interacting with K8s
+
+### K8s's API server
+
+- Rest API
+- Client Libraries
+- Kubectl
+- Web dashboard
+
+### Kubectl Commands
+
+- `kubectl get`: List resources
+- `kubectl delete`: Delete a resource
+- `kubectl describe`: Show detailed information about a resource
+- `kubectl logs`: Print the logs from a container in a pod
+- `kubectl exec`: Execute a command in a container
+- `kubectl apply`: Apply a configuration to a resource by filename or stdin
+- `kubectl create`: Create a resource by filename or stdin
+
+## K8's Pods
+
+- Pods are the smallest deployable units in Kubernetes
+- Basic Building blocks
+- one or more containers in a Pod
+- Pod containers all share a container network
+- One IP address per Pod
+
+## Whats in a Pod Declaration
+
+- container image
+- container ports
+- container restart policy
+- resource limits
+- environment variables
+
+## Manifest Files
+
+- Declare desired properties
+- Manifest can describe all kinds of resources
+- The `spec` contains resource-specific properties
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: my-container
+    image: my-image
+    ports:
+    - containerPort: 80
+```
+
+## Manifests in Action
+
+- `kubectl create` sends manifest to API server
+- API server does the following for Pod manifests:
+  - Select node to run Pod
+  - Schedule Pod to run on node
+  - Creates a Pod object
+  - Starts the container in the Pod
+
